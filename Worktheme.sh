@@ -10,7 +10,13 @@ sudo -E apt update -y
 sudo -E apt upgrade -y
 
 # Install required packages
-sudo -E apt install google-chrome-stable wget putty-tools filezilla putty -y
+sudo -E apt install wget putty-tools filezilla putty -y
+
+## Install google chrome
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
+sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+sudo apt-get update
+sudo apt-get install google-chrome-stable
 
 ## Install Visual Studio Code
 echo "code code/add-microsoft-repo boolean true" | sudo -E debconf-set-selections
