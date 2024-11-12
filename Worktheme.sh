@@ -83,6 +83,10 @@ gsettings set org.gnome.shell.extensions.dash-to-dock dock-position 'BOTTOM'
 # Set the standard favorite short-cuts
 gsettings set org.gnome.shell favorite-apps "['snap-store_snap-store.desktop', 'firefox_firefox.desktop', 'google-chrome.desktop', 'org.gnome.Terminal.desktop', 'code.desktop', 'putty.desktop', 'postman_postman.desktop', 'filezilla.desktop', 'org.gnome.Nautilus.desktop']"
 
+## Copy logo and activate it
+sudo -E cp masterqms-logo.png /usr/share/plymouth/masterqms-logo.png
+gsettings set org.gnome.login-screen logo '/usr/share/plymouth/masterqms-logo.png'
+
 #############################
 ## End of script            ##
 #############################
