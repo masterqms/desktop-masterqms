@@ -18,17 +18,6 @@ sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" >> /e
 sudo apt-get update
 sudo apt-get install google-chrome-stable
 
-## Install Visual Studio Code
-echo "code code/add-microsoft-repo boolean true" | sudo -E debconf-set-selections
-sudo -E apt install gpg -y
-wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
-echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" | sudo -E tee /etc/apt/sources.list.d/vscode.list > /dev/null
-rm -f packages.microsoft.gpg
-sudo -E apt install apt-transport-https -y
-sudo -E apt update -y
-sudo -E apt install code -y
-
 ## Install snap packages
 sudo -E snap install postman
 sudo -E snap install antares
